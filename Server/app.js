@@ -3,28 +3,27 @@ const cors = require('cors');
 
 const app = express();
 
-const allowedOrigins = [
-  "https://greenseva.vercel.app",
-  "https://greenseva-git-main-ahteshamofficial357-4057s-projects.vercel.app",
-  "https://greenseva-4epnvcobc-ahteshamofficial357-4057s-projects.vercel.app",
-  "http://localhost:5173",
-  "http://localhost:3000",
-  "http://127.0.0.1:5500",
-  "http://localhost:5500"
-];
+// Global CORS setup to support all origins & preflight requests cleanly
+app.use(cors());
+app.options('*', cors());
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(null, true); // Allow all origins for hackathon deployment compatibility if needed
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-}));
+// Fallback headers middleware for extra safety with proxy layers like Render
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  next();
+});
 
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ limit: '15mb', extended: true }));
