@@ -3,8 +3,8 @@
  */
 
 const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-  ? (localStorage.getItem('useLocalBackend') === 'true' ? 'http://localhost:8000/api' : 'https://greenseva-backend.onrender.com/api')
-  : 'https://greenseva-backend.onrender.com/api';
+  ? (localStorage.getItem('useLocalBackend') === 'true' ? 'http://localhost:8000/api' : 'https://greensevaproject.onrender.com/api')
+  : 'https://greensevaproject.onrender.com/api';
 const TOKEN_KEY = 'gsToken';
 const PROTECTED_PAGES = ['dashboard.html', 'cosmetic.html', 'foodreview.html', 'rewards.html'];
 
@@ -273,7 +273,7 @@ function switchAuthTab(tab) {
 async function handlePostAuthRedirect() {
   const target = sessionStorage.getItem('gs_redirect_target');
   sessionStorage.removeItem('gs_redirect_target');
-  
+
   const lockOverlay = document.getElementById('gs-lock-overlay');
   if (lockOverlay) lockOverlay.remove();
 
