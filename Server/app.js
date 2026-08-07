@@ -4,20 +4,20 @@ const cors = require('cors');
 const app = express();
 
 const allowedOrigins = [
-  'https://greenseva-git-main-ahteshamofficial357-4057s-projects.vercel.app',
-  'https://greenseva-4epnvcobc-ahteshamofficial357-4057s-projects.vercel.app',
-  'http://localhost:5173',
-  'http://localhost:3000',
+  "https://greenseva-git-main-ahteshamofficial357-4057s-projects.vercel.app",
+  "https://greenseva-4epnvcobc-ahteshamofficial357-4057s-projects.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:3000",
   "https://greenseva.vercel.app"
 ];
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log("Blocked Origin:", origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
