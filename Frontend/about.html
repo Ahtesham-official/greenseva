@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GreenSeva - Sustainable Living</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00522d",
+                        "primary-container": "#006d3e",
+                        "inverse-primary": "#80d99f",
+                        "surface-variant": "#dfe4dd",
+                        "secondary": "#506600",
+                        "surface-bright": "#f6fbf4",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#715d00",
+                        "surface": "#f6fbf4",
+                        "on-tertiary-container": "#4d3e00",
+                        "surface-container-high": "#e5e9e3",
+                        "surface-container-highest": "#dfe4dd",
+                        "on-secondary-fixed-variant": "#3b4d00",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f0f5ee",
+                        "tertiary-fixed-dim": "#e5c447",
+                        "on-primary-fixed": "#00210f",
+                        "surface-tint": "#006d3e",
+                        "on-primary": "#ffffff",
+                        "on-background": "#181d19",
+                        "secondary-fixed-dim": "#b1d34f",
+                        "inverse-surface": "#2d322d",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#cdf069",
+                        "on-tertiary-fixed": "#231b00",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#00522d",
+                        "primary-fixed-dim": "#80d99f",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6f7a70",
+                        "on-secondary-container": "#536b00",
+                        "on-secondary-fixed": "#161f00",
+                        "primary-fixed": "#9cf6ba",
+                        "secondary-container": "#caed66",
+                        "on-surface-variant": "#3f4941",
+                        "background": "#f6fbf4",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "surface-dim": "#d7dbd5",
+                        "tertiary-fixed": "#ffe178",
+                        "tertiary-container": "#c8a92e",
+                        "on-primary-container": "#92ecb1",
+                        "surface-container": "#ebefe8",
+                        "inverse-on-surface": "#eef2eb",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bec9be",
+                        "on-surface": "#181d19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #00522d, #506600);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300" id="topNav">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
+<!-- Brand -->
+<a class="flex items-center gap-2" href="index.html">
+<img alt="GreenSeva Logo" class="logo" data-alt="GreenSeva Sustainability Platform Logo, featuring a minimalist green leaf sprouting from gentle hands, conveying eco-friendliness and care." src="GreenSevaLogo.png" />
+</a>
+<!-- Desktop Navigation Links -->
+<div class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="dashboard.html">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="cosmetic.html">Cosmetic</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="foodreview.html">Food Review</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="rewards.html">Rewards</a>
+
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 transition-colors duration-300" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<div class="hidden md:flex items-center gap-4">
+<button class="font-label-md text-label-md text-primary border border-primary px-4 py-2 rounded-full hover:bg-primary/5 transition-colors">Start Scanning</button>
+<button class="font-label-md text-label-md bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container transition-colors shadow-sm">Join Now</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<main class="pt-24 px-6 md:px-12 max-w-container-max mx-auto">
+<section class="py-16">
+<h1 class="font-display-lg text-display-lg text-on-background mb-4">About GreenSeva</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">GreenSeva helps people make sustainable choices through product scanning, eco-impact insights, and rewards. Our mission is to empower eco-friendly decisions with easy-to-use tools and real-world incentives.</p>
+</section>
+<section class="grid gap-6 md:grid-cols-3">
+<div class="bg-surface-container-low rounded-3xl p-6 shadow-sm">
+<h2 class="font-headline-md text-headline-md text-on-background mb-3">Our Mission</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Create a greener lifestyle by connecting behavior with rewards and actionable environmental data.</p>
+</div>
+<div class="bg-surface-container-low rounded-3xl p-6 shadow-sm">
+<h2 class="font-headline-md text-headline-md text-on-background mb-3">What We Do</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Scan products, rescue surplus food, earn tokens, and unlock eco-friendly rewards across our platform.</p>
+</div>
+<div class="bg-surface-container-low rounded-3xl p-6 shadow-sm">
+<h2 class="font-headline-md text-headline-md text-on-background mb-3">Join Us</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Be part of the GreenSeva community and turn sustainable choices into measurable impact.</p>
+</div>
+</section>
+</main>
+</body>
+</html> 

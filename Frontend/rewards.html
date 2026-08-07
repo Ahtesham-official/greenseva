@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GreenSeva - Sustainable Living</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00522d",
+                        "primary-container": "#006d3e",
+                        "inverse-primary": "#80d99f",
+                        "surface-variant": "#dfe4dd",
+                        "secondary": "#506600",
+                        "surface-bright": "#f6fbf4",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#715d00",
+                        "surface": "#f6fbf4",
+                        "on-tertiary-container": "#4d3e00",
+                        "surface-container-high": "#e5e9e3",
+                        "surface-container-highest": "#dfe4dd",
+                        "on-secondary-fixed-variant": "#3b4d00",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f0f5ee",
+                        "tertiary-fixed-dim": "#e5c447",
+                        "on-primary-fixed": "#00210f",
+                        "surface-tint": "#006d3e",
+                        "on-primary": "#ffffff",
+                        "on-background": "#181d19",
+                        "secondary-fixed-dim": "#b1d34f",
+                        "inverse-surface": "#2d322d",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#cdf069",
+                        "on-tertiary-fixed": "#231b00",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#00522d",
+                        "primary-fixed-dim": "#80d99f",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6f7a70",
+                        "on-secondary-container": "#536b00",
+                        "on-secondary-fixed": "#161f00",
+                        "primary-fixed": "#9cf6ba",
+                        "secondary-container": "#caed66",
+                        "on-surface-variant": "#3f4941",
+                        "background": "#f6fbf4",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "surface-dim": "#d7dbd5",
+                        "tertiary-fixed": "#ffe178",
+                        "tertiary-container": "#c8a92e",
+                        "on-primary-container": "#92ecb1",
+                        "surface-container": "#ebefe8",
+                        "inverse-on-surface": "#eef2eb",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bec9be",
+                        "on-surface": "#181d19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #00522d, #506600);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300" id="topNav">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
+<!-- Brand -->
+<a class="flex items-center gap-2" href="index.html">
+<img alt="GreenSeva Logo" class="logo" data-alt="GreenSeva Sustainability Platform Logo, featuring a minimalist green leaf sprouting from gentle hands, conveying eco-friendliness and care." src="GreenSevaLogo.png" />
+</a>
+<!-- Desktop Navigation Links -->
+<div class="hidden md:flex items-center gap-6">
+<a class="ont-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="dashboard.html">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="cosmetic.html">Cosmetic</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="foodreview.html">Food Review</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 transition-colors duration-300" href="rewards.html">Rewards</a>
+
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<!-- Actions -->
+
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary text-label-md" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:bg-primary/90 transition-colors">Sign Up</button>
+</div>
+</nav>
+<div class="flex-grow pt-16 flex flex-col">
+<!-- Main Content -->
+<main class="flex-grow p-margin-mobile md:p-margin-desktop bg-surface">
+<div class="max-w-container-max mx-auto">
+<!-- Token Banner -->
+<div class="bg-gradient-to-r from-primary-container to-secondary-container rounded-2xl p-8 mb-12 flex flex-col md:flex-row items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -right-20 -top-20 opacity-20">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="relative z-10 text-center md:text-left mb-4 md:mb-0">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-primary-container mb-2">Marketplace</h1>
+<p class="font-body-lg text-body-lg text-on-primary-container/80">Turn your eco-actions into real-world rewards.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center bg-surface/40 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-lg">
+<span class="font-label-md text-label-md text-on-primary-container uppercase tracking-wider mb-1">Your Balance</span>
+<div class="flex items-center gap-2 text-primary font-display-lg text-display-lg">
+<span class="material-symbols-outlined text-[40px] text-secondary-fixed animate-pulse" style="font-variation-settings: 'FILL' 1;">psychiatry</span>
+                            1,240
+                        </div>
+</div>
+</div>
+<!-- Available Challenges Section -->
+<div class="mb-16">
+<div class="mb-6">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Available Challenges</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Complete these impactful actions to earn Eco-Tokens.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Challenge 1 -->
+<div class="bg-surface-bright rounded-2xl p-6 shadow-sm border border-outline-variant/20 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="h-40 rounded-xl mb-4 overflow-hidden relative bg-gradient-to-br from-primary-container to-surface-container-high p-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-[80px] text-primary" style="font-variation-settings: 'FILL' 1;">nature</span>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-wide mb-1">Nature</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Plant a Native Sapling</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Plant a native tree sapling in your local area to support biodiversity and sequester carbon.</p>
+<button class="w-full bg-secondary text-on-secondary h-12 rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-colors flex items-center justify-center gap-2">
+                                Earn 500 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">toll</span>
+</button>
+</div>
+</div>
+<!-- Challenge 2 -->
+<div class="bg-surface-bright rounded-2xl p-6 shadow-sm border border-outline-variant/20 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="h-40 rounded-xl mb-4 overflow-hidden relative bg-gradient-to-br from-secondary-container to-surface-container-high p-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-[80px] text-secondary" style="font-variation-settings: 'FILL' 1;">group</span>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-tertiary font-label-sm text-label-sm uppercase tracking-wide mb-1">Community</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Organize a Community Cleanup</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Gather friends and neighbors to clean up a local park, beach, or neighborhood street.</p>
+<button class="w-full bg-secondary text-on-secondary h-12 rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-colors flex items-center justify-center gap-2">
+                                Earn 1,000 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">toll</span>
+</button>
+</div>
+</div>
+<!-- Challenge 3 -->
+<div class="bg-surface-bright rounded-2xl p-6 shadow-sm border border-outline-variant/20 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="h-40 rounded-xl mb-4 overflow-hidden relative bg-gradient-to-br from-tertiary-container to-surface-container-high p-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-[80px] text-tertiary" style="font-variation-settings: 'FILL' 1;">solar_power</span>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-wide mb-1">Energy</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Switch to 100% Renewable Energy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Change your home energy provider to a 100% renewable source and upload verification.</p>
+<button class="w-full bg-secondary text-on-secondary h-12 rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-colors flex items-center justify-center gap-2">
+                                Earn 5,000 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">toll</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Redeem Rewards Section -->
+<div>
+<div class="mb-6">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Redeem Rewards</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your hard work pays off! Use the Eco-Tokens earned from challenges to claim these rewards.</p>
+</div>
+<!-- Bento Grid for Rewards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Reward Card 1 -->
+<div class="bg-surface-bright rounded-2xl p-6 shadow-sm border border-outline-variant/20 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="h-40 rounded-xl mb-4 overflow-hidden relative">
+<div class="absolute inset-0 bg-black/10 z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A beautifully crafted artisan coffee cup sitting on a rustic wooden table surrounded by lush, vibrant green ferns and moss. Natural sunlight streams in, highlighting the rich textures of the wood and the glossy finish of the ceramic. The mood is warm, organic, and inviting, perfectly capturing a sustainable, local eco-friendly coffee shop vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS11ngnvkC_5gKNZJng7v1JACgQhg4Ud68lyfbQSJbGGqurT-o02UBxkOiupHJugBU4eKg8PSIDvO1GoLnl1thbP2SlBzQvLpl-Nj2WjC1qc8Cm8liGfeA7mQ-eQ0nXXDyhB9IYKIcCHrqRolwgV5cPvWIh9LgNSZuF47jt5mp8sYXJ6GK9omp7VoOjcMj8yTv6zJYtmT-56D7l8jzwPFBOFgWknVU6aGSEzXs2-RPGEwlc5qYX1Qi"/>
+<div class="absolute top-3 right-3 z-20 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">lock_open</span> Unlocked
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-wide mb-1">Local Business</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Free Artisan Coffee</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Enjoy a complimentary organic, fair-trade coffee at any participating local green-certified cafe.</p>
+<button class="w-full bg-primary text-on-primary h-12 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                                Redeem for 500 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">toll</span>
+</button>
+</div>
+</div>
+<!-- Reward Card 2 (Locked) -->
+<div class="bg-surface-bright rounded-2xl p-6 shadow-sm border border-outline-variant/20 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300 opacity-75">
+<div class="h-40 rounded-xl mb-4 overflow-hidden relative">
+<div class="absolute inset-0 bg-surface/50 backdrop-blur-[2px] z-10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] text-outline drop-shadow-md">lock</span>
+</div>
+<img class="w-full h-full object-cover" data-alt="A sprawling, pristine forest landscape viewed from a slightly elevated angle. Countless tall pine trees stretch towards a clear blue sky, bathed in bright, optimistic morning sunlight. The scene is incredibly lush and green, evoking feelings of environmental conservation, growth, and natural beauty. The aesthetic is clean, vivid, and deeply connected to nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAhVkPjDNwrkdW1jJPdqRNUe6fjHQrpSftsBQ7uymYS4BxCPs-AkKdTrifQWyz-hBnqKQpBhRF5pfQ9TD5JDwdbJY7JYqETuYl_Twvr1JAzJFf2guwjKvjavf8uRuG4U43uS50z50-GpGe_poGFJd6VnLN9eTWF8zfVi54wnXkwW_5sai27qc8_G6qzFIW1JLS9bbXuyrcY8M2gJ-RL6XLH9VUdCPArli5QtA5-iONFRMzJvir6qRK"/>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-tertiary font-label-sm text-label-sm uppercase tracking-wide mb-1">Impact</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Plant 5 Trees</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Partner with global NGOs to plant 5 trees in deforested regions. Receive a verifiable digital certificate.</p>
+<button class="w-full bg-surface-variant text-on-surface-variant h-12 rounded-lg font-label-md text-label-md cursor-not-allowed flex items-center justify-center gap-2">
+                                Requires 1,500 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">toll</span>
+</button>
+</div>
+</div>
+<!-- Reward Card 3 -->
+<div class="bg-surface-bright rounded-2xl p-6 shadow-sm border border-outline-variant/20 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+<div class="h-40 rounded-xl mb-4 overflow-hidden relative bg-gradient-to-br from-secondary-container to-surface-container-high p-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-[80px] text-secondary" style="font-variation-settings: 'FILL' 1;">directions_transit</span>
+<div class="absolute top-3 right-3 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full text-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">lock_open</span> Unlocked
+                            </div>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-wide mb-1">Transit</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Monthly Metro Pass</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Get 50% off your next monthly public transit pass. Good for all city zones.</p>
+<button class="w-full bg-primary text-on-primary h-12 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                                Redeem for 1,000 <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">toll</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
