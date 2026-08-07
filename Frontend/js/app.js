@@ -2,9 +2,9 @@
  * GreenSeva Global Application & Frontend Integration Script
  */
 
-const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:8000/api'
-  : 'https://greenseva-backend.onrender.com/api'; // <--- Replace with your live Render backend URL after creating the service
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? (localStorage.getItem('useLocalBackend') === 'true' ? 'http://localhost:8000/api' : 'https://greensevaproject.onrender.com/api')
+  : 'https://greensevaproject.onrender.com/api';
 const TOKEN_KEY = 'gsToken';
 const PROTECTED_PAGES = ['dashboard.html', 'cosmetic.html', 'foodreview.html', 'rewards.html'];
 
