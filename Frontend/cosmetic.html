@@ -1,368 +1,459 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GreenSeva - Cosmetic Scanner</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "primary": "#00522d",
-                        "primary-container": "#006d3e",
-                        "inverse-primary": "#80d99f",
-                        "surface-variant": "#dfe4dd",
-                        "secondary": "#506600",
-                        "surface-bright": "#f6fbf4",
-                        "on-secondary": "#ffffff",
-                        "tertiary": "#715d00",
-                        "surface": "#f6fbf4",
-                        "on-tertiary-container": "#4d3e00",
-                        "surface-container-high": "#e5e9e3",
-                        "surface-container-highest": "#dfe4dd",
-                        "on-secondary-fixed-variant": "#3b4d00",
-                        "on-error": "#ffffff",
-                        "surface-container-low": "#f0f5ee",
-                        "tertiary-fixed-dim": "#e5c447",
-                        "on-primary-fixed": "#00210f",
-                        "surface-tint": "#006d3e",
-                        "on-primary": "#ffffff",
-                        "on-background": "#181d19",
-                        "secondary-fixed-dim": "#b1d34f",
-                        "inverse-surface": "#2d322d",
-                        "on-error-container": "#93000a",
-                        "secondary-fixed": "#cdf069",
-                        "on-tertiary-fixed": "#231b00",
-                        "error-container": "#ffdad6",
-                        "error": "#ba1a1a",
-                        "on-primary-fixed-variant": "#00522d",
-                        "primary-fixed-dim": "#80d99f",
-                        "on-tertiary": "#ffffff",
-                        "outline": "#6f7a70",
-                        "on-secondary-container": "#536b00",
-                        "on-secondary-fixed": "#161f00",
-                        "primary-fixed": "#9cf6ba",
-                        "secondary-container": "#caed66",
-                        "on-surface-variant": "#3f4941",
-                        "background": "#f6fbf4",
-                        "on-tertiary-fixed-variant": "#554500",
-                        "surface-dim": "#d7dbd5",
-                        "tertiary-fixed": "#ffe178",
-                        "tertiary-container": "#c8a92e",
-                        "on-primary-container": "#92ecb1",
-                        "surface-container": "#ebefe8",
-                        "inverse-on-surface": "#eef2eb",
-                        "surface-container-lowest": "#ffffff",
-                        "outline-variant": "#bec9be",
-                        "on-surface": "#181d19"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-desktop": "64px",
-                        "gutter": "24px",
-                        "margin-mobile": "16px",
-                        "container-max": "1280px",
-                        "unit": "4px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Manrope"],
-                        "headline-lg": ["Manrope"],
-                        "label-md": ["Hanken Grotesk"],
-                        "body-lg": ["Hanken Grotesk"],
-                        "headline-lg-mobile": ["Manrope"],
-                        "body-md": ["Hanken Grotesk"],
-                        "label-sm": ["Hanken Grotesk"],
-                        "headline-md": ["Manrope"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
-                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
-                    }
-                }
-            }
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>GreenSeva - Cosmetic Scanner</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#00522d",
+            "primary-container": "#006d3e",
+            "inverse-primary": "#80d99f",
+            "surface-variant": "#dfe4dd",
+            "secondary": "#506600",
+            "surface-bright": "#f6fbf4",
+            "on-secondary": "#ffffff",
+            "tertiary": "#715d00",
+            "surface": "#f6fbf4",
+            "on-tertiary-container": "#4d3e00",
+            "surface-container-high": "#e5e9e3",
+            "surface-container-highest": "#dfe4dd",
+            "on-secondary-fixed-variant": "#3b4d00",
+            "on-error": "#ffffff",
+            "surface-container-low": "#f0f5ee",
+            "tertiary-fixed-dim": "#e5c447",
+            "on-primary-fixed": "#00210f",
+            "surface-tint": "#006d3e",
+            "on-primary": "#ffffff",
+            "on-background": "#181d19",
+            "secondary-fixed-dim": "#b1d34f",
+            "inverse-surface": "#2d322d",
+            "on-error-container": "#93000a",
+            "secondary-fixed": "#cdf069",
+            "on-tertiary-fixed": "#231b00",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "on-primary-fixed-variant": "#00522d",
+            "primary-fixed-dim": "#80d99f",
+            "on-tertiary": "#ffffff",
+            "outline": "#6f7a70",
+            "on-secondary-container": "#536b00",
+            "on-secondary-fixed": "#161f00",
+            "primary-fixed": "#9cf6ba",
+            "secondary-container": "#caed66",
+            "on-surface-variant": "#3f4941",
+            "background": "#f6fbf4",
+            "on-tertiary-fixed-variant": "#554500",
+            "surface-dim": "#d7dbd5",
+            "tertiary-fixed": "#ffe178",
+            "tertiary-container": "#c8a92e",
+            "on-primary-container": "#92ecb1",
+            "surface-container": "#ebefe8",
+            "inverse-on-surface": "#eef2eb",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#bec9be",
+            "on-surface": "#181d19"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "64px",
+            "gutter": "24px",
+            "margin-mobile": "16px",
+            "container-max": "1280px",
+            "unit": "4px"
+          },
+          "fontFamily": {
+            "display-lg": ["Manrope"],
+            "headline-lg": ["Manrope"],
+            "label-md": ["Hanken Grotesk"],
+            "body-lg": ["Hanken Grotesk"],
+            "headline-lg-mobile": ["Manrope"],
+            "body-md": ["Hanken Grotesk"],
+            "label-sm": ["Hanken Grotesk"],
+            "headline-md": ["Manrope"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
         }
-    </script>
-<style>
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.6);
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-        .scanner-line {
-            animation: scan 2s infinite linear;
-        }
-        @keyframes scan {
-            0% { top: 0%; }
-            50% { top: 100%; }
-            100% { top: 0%; }
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.6);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .scanner-line {
+      animation: scan 2s infinite linear;
+    }
+
+    @keyframes scan {
+      0% {
+        top: 0%;
+      }
+
+      50% {
+        top: 100%;
+      }
+
+      100% {
+        top: 0%;
+      }
+    }
+  </style>
 </head>
+
 <body class="bg-background text-on-background font-body-md antialiased pt-16">
-<!-- Top Navigation (Shared Component) -->
-<nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-white/20 dark:border-inverse-surface/20 shadow-sm transition-all duration-300">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
-<div class="flex items-center gap-2">
-<img alt="GreenSeva Logo" class="logo" data-alt="GreenSeva Sustainability Platform Logo, featuring a minimalist green leaf sprouting from gentle hands, conveying eco-friendliness and care." src="GreenSevaLogo.png" />
-</div>
-<div class="hidden md:flex items-center gap-6">
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="index.html">Home</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="dashboard.html">Dashboard</a>
-<a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary pb-1" href="cosmetic.html">Cosmetic</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="foodreview.html">Food Review</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="rewards.html">Rewards</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="about.html">About</a>
-<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="contact.html">Contact</a>
-</div>
-<div class="hidden md:flex items-center gap-4">
-<button class="font-label-md text-label-md text-primary border border-primary px-4 py-2 rounded-full hover:bg-primary/5 transition-colors">Start Scanning</button>
-<button class="font-label-md text-label-md bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container transition-colors shadow-sm">Join Now</button>
-</div>
-<!-- Mobile Menu Toggle -->
-<button class="md:hidden text-primary p-2">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</div>
-</nav>
-<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
-<!-- Header Section -->
-<header class="mb-12 text-center md:text-left">
-<h1 class="font-display-lg text-display-lg text-on-background mb-4">Cosmetic Impact Scanner</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Scan any cosmetic product's barcode or ingredients list to instantly reveal its environmental impact, carbon footprint, and discover eco-friendly alternatives.</p>
-</header>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Left Column: Scanner Area -->
-<div class="lg:col-span-5 space-y-6">
-<!-- Scanner Viewfinder -->
-<div class="glass-panel rounded-xl p-4 shadow-sm relative overflow-hidden group">
-<div class="aspect-[4/5] bg-surface-container-high rounded-lg relative overflow-hidden flex items-center justify-center">
-<!-- Simulated Camera View -->
-<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A close up view through a smartphone camera viewfinder showing a generic cosmetic bottle being scanned against a clean, well-lit white background. The image should look like a live camera feed with a slightly shallow depth of field, focusing on the product label." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz6w1FJcwJ9Rw7gqYmxHHazBJ30stu2A7MbPnuDRKP5QoL5SkxEk80Vy8-GHBoNrdfI8J-e0bsoRsHMAV9SZF6CP9vfEimEngInnr1jbU4aeVpnfR-bWdPdqLyOrikKMnk_WYSK8zfRmmCyCbXQylLrQ5p6SR39ZmPHw3_1hBfXwMJD9NKqsLDhCTN6Sf8WsZ2iASeeMAUnunhSQf0d9NRX8qrZfPTYrV-tqMIBydCzxrKNXcqS54Y"/>
-<!-- Overlay elements -->
-<div class="absolute inset-0 border-2 border-primary/30 rounded-lg m-8 pointer-events-none">
-<!-- Corner markers -->
-<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl"></div>
-<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr"></div>
-<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl"></div>
-<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br"></div>
-</div>
-<!-- Animated Scan Line -->
-<div class="scanner-line absolute left-0 right-0 h-1 bg-primary shadow-[0_0_8px_rgba(0,82,45,0.8)] z-10 w-[80%] mx-auto"></div>
-<div class="absolute bottom-6 left-0 w-full text-center z-20">
-<span class="inline-flex items-center gap-2 bg-surface/80 backdrop-blur-sm px-4 py-2 rounded-full font-label-sm text-label-sm text-on-surface">
-<span class="material-symbols-outlined text-[16px] text-primary">barcode_scanner</span>
-                                Scanning barcode...
-                            </span>
-</div>
-</div>
-</div>
-<!-- Manual Upload / Entry -->
-<div class="bg-surface-container-low rounded-xl p-6 shadow-sm flex flex-col sm:flex-row items-center gap-4 justify-between border border-surface-variant">
-<div class="flex items-center gap-3 text-on-surface-variant">
-<span class="material-symbols-outlined text-outline">upload_file</span>
-<div>
-<p class="font-label-md text-label-md">Upload Photo</p>
-<p class="font-label-sm text-label-sm opacity-80">Scan from gallery</p>
-</div>
-</div>
-<div class="h-8 w-px bg-outline-variant hidden sm:block"></div>
-<div class="flex items-center gap-3 text-on-surface-variant">
-<span class="material-symbols-outlined text-outline">edit_note</span>
-<div>
-<p class="font-label-md text-label-md">Manual Entry</p>
-<p class="font-label-sm text-label-sm opacity-80">Type product name</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Results Dashboard (Bento Grid Style) -->
-<div class="lg:col-span-7 space-y-6">
-<!-- Product Header Info -->
-<div class="glass-panel rounded-xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-<div class="flex items-center gap-4">
-<div class="w-16 h-16 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="A clean, minimalist product shot of a high-end face serum bottle on a plain light background. Studio lighting, sharp focus, showing the sleek packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv8EqxZmeWXItVGtAKXCYkvy34D1QaeKc8ScXsnqv1u5JURKoukVm-aob9WPedNzCIAgZN6pBS32fLrufq4XAoYD0UYyoo73qUxJ-3mMcw5oG_SDn_ta8WBrP_L-d85n78ks16_283RCYmKO6WCijG3tWlKXF8_4DEr4BkRix-asWFy_rY_kmAUmcfPaVq74KWUB6KYYet3qQ0Te9bm9R4A56u1g3JdVRZ-b1ODndma60Az3k1fFw7"/>
-</div>
-<div>
-<h2 class="font-headline-md text-headline-md text-on-background">Luminous Face Serum</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Brand: GlowNaturals • 30ml</p>
-</div>
-</div>
-<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-lg flex items-center gap-2">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span class="font-label-md text-label-md">Verified Data</span>
-</div>
-</div>
-<!-- Top Metrics Row -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-<!-- Sustainability Rating (A-E) -->
-<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm relative overflow-hidden">
-<div class="absolute top-0 right-0 p-4 opacity-10">
-<span class="material-symbols-outlined text-[64px]">eco</span>
-</div>
-<h3 class="font-label-md text-label-md text-on-surface-variant mb-4">Sustainability Rating</h3>
-<div class="flex items-end gap-4">
-<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-display-lg text-display-lg shadow-sm">
-                                B
-                            </div>
-<div class="pb-1">
-<p class="font-body-md text-body-md text-on-background font-medium">Good</p>
-<p class="font-label-sm text-label-sm text-outline">Top 30% in category</p>
-</div>
-</div>
-<!-- Rating Scale Bar -->
-<div class="mt-6 flex h-2 rounded-full overflow-hidden">
-<div class="w-1/5 bg-primary"></div>
-<div class="w-1/5 bg-secondary"></div>
-<div class="w-1/5 bg-tertiary-fixed-dim"></div>
-<div class="w-1/5 bg-[#F9A825]"></div> <!-- Keeping semantic color for scale -->
-<div class="w-1/5 bg-error"></div>
-</div>
-<div class="flex justify-between mt-1 font-label-sm text-label-sm text-outline px-1">
-<span>A</span><span>B</span><span>C</span><span>D</span><span>E</span>
-</div>
-</div>
-<!-- Carbon Impact Score -->
-<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant mb-4">Carbon Footprint</h3>
-<div class="flex items-center gap-4 mb-2">
-<span class="font-headline-lg text-headline-lg text-on-background">2.4</span>
-<span class="font-body-md text-body-md text-on-surface-variant">kg CO₂e</span>
-</div>
-<p class="font-label-sm text-label-sm text-outline mb-4">Per 100ml / Equivalent</p>
-<div class="space-y-3">
-<div class="flex items-center justify-between text-sm">
-<span class="font-label-sm text-label-sm text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">local_shipping</span> Transport</span>
-<span class="font-label-sm text-label-sm">45%</span>
-</div>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5">
-<div class="bg-tertiary-fixed-dim h-1.5 rounded-full" style="width: 45%"></div>
-</div>
-<div class="flex items-center justify-between text-sm">
-<span class="font-label-sm text-label-sm text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">factory</span> Production</span>
-<span class="font-label-sm text-label-sm">35%</span>
-</div>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5">
-<div class="bg-secondary h-1.5 rounded-full" style="width: 35%"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- Ingredient Breakdown List -->
-<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm">
-<div class="flex items-center justify-between mb-4">
-<h3 class="font-label-md text-label-md text-on-surface-variant">Key Ingredients Impact</h3>
-<button class="font-label-sm text-label-sm text-primary hover:underline">View All</button>
-</div>
-<div class="space-y-0">
-<!-- Safe Ingredient -->
-<div class="py-3 border-b border-surface-variant flex items-center justify-between group">
-<div class="flex items-center gap-3">
-<div class="w-2 h-2 rounded-full bg-primary"></div>
-<span class="font-body-md text-body-md text-on-background">Hyaluronic Acid</span>
-</div>
-<span class="bg-primary-container/10 text-primary-container px-2 py-1 rounded font-label-sm text-label-sm">Safe / Low Impact</span>
-</div>
-<!-- Moderate Ingredient -->
-<div class="py-3 border-b border-surface-variant flex items-center justify-between group">
-<div class="flex items-center gap-3">
-<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
-<span class="font-body-md text-body-md text-on-background">Glycerin (Palm-derived)</span>
-</div>
-<span class="bg-tertiary-fixed-dim/10 text-tertiary px-2 py-1 rounded font-label-sm text-label-sm flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">warning</span> Moderate Impact
-                            </span>
-</div>
-<!-- High Carbon/Flagged Ingredient -->
-<div class="py-3 flex items-center justify-between group">
-<div class="flex items-center gap-3">
-<div class="w-2 h-2 rounded-full bg-error"></div>
-<span class="font-body-md text-body-md text-on-background line-through opacity-70">Microplastics (PEG-8)</span>
-</div>
-<span class="bg-error-container text-on-error-container px-2 py-1 rounded font-label-sm text-label-sm">High Risk</span>
-</div>
-</div>
-</div>
-<!-- Eco-Friendly Alternatives Carousel (Static Representation) -->
-<div class="bg-surface-container-low rounded-xl p-6 shadow-sm">
-<h3 class="font-label-md text-label-md text-on-surface-variant mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary">recommend</span>
-                        Better Alternatives (Rating A)
-                    </h3>
-<div class="flex gap-4 overflow-x-auto pb-4 snap-x">
-<!-- Alternative Card 1 -->
-<div class="min-w-[200px] flex-shrink-0 bg-surface-container-lowest border border-surface-variant rounded-lg p-4 snap-start hover:shadow-md transition-shadow">
-<div class="h-24 w-full bg-surface-container rounded mb-3 overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="Minimalist eco-friendly face serum in a frosted glass bottle with a bamboo dropper, placed on a light natural stone surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLn8wky8jiHAtXKjjCb_0n2wdvu4_-ERrH7IBE6LT0jrjeICQFqVj5SN8KIilmV50zfJF5RU4dLJiixtriufY1Pn03xk9liyN9wI9TSRn4VxxZnqeSrRMWbJVYFrA0WPx_36a-bUZpawHsaerSZJzqNNkEpNvOuPSUVPtFl2JJMLHF5hp23Ms6O8eo94az7OJKvaY2y0HNjaNEhp_rSV3dtCCGAs5AkwertSXM621xxKz6kFqYzwZR"/>
-</div>
-<div class="flex justify-between items-start mb-1">
-<h4 class="font-label-md text-label-md text-on-background line-clamp-1">Pure Earth Serum</h4>
-<span class="bg-secondary text-on-secondary text-xs px-1.5 py-0.5 rounded font-bold">A</span>
-</div>
-<p class="font-label-sm text-label-sm text-outline mb-3">-40% Carbon Footprint</p>
-<button class="w-full text-center font-label-sm text-label-sm text-primary border border-primary rounded py-1.5 hover:bg-primary/5 transition-colors">Compare</button>
-</div>
-<!-- Alternative Card 2 -->
-<div class="min-w-[200px] flex-shrink-0 bg-surface-container-lowest border border-surface-variant rounded-lg p-4 snap-start hover:shadow-md transition-shadow">
-<div class="h-24 w-full bg-surface-container rounded mb-3 overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A clean, green-tinted glass pump bottle of natural skincare serum, isolated on a white background with soft, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Zeris8rpxFNgcipa9dAAdmMGbX4LcQbh0xYfxts3rVf0lmgv-a1ST48EsXHW-KLsYTVMfqbSCv09X9XGXMRFfPgRqwizflwkN1jQRqQi2oMQkbJK-S4kNVFQfcy4r2DJpNHhjtvHjzgSgvvjC3nn8scvud7x6FOdnBw8o3G9wD0izaDInkVd_H_otVxoMbfFyw5t2Z8aKl59BfPoxWMqR01xOJ22kfjYs6SxwHZqmZ-Lz9kMweUE"/>
-</div>
-<div class="flex justify-between items-start mb-1">
-<h4 class="font-label-md text-label-md text-on-background line-clamp-1">Botanica Glow</h4>
-<span class="bg-secondary text-on-secondary text-xs px-1.5 py-0.5 rounded font-bold">A</span>
-</div>
-<p class="font-label-sm text-label-sm text-outline mb-3">100% Plant-based</p>
-<button class="w-full text-center font-label-sm text-label-sm text-primary border border-primary rounded py-1.5 hover:bg-primary/5 transition-colors">Compare</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer (Shared Component) -->
-<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full py-12 mt-12 border-t border-surface-variant">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="col-span-1 md:col-span-2">
-<span class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed block mb-4">GreenSeva</span>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6">Empowering conscious consumers with transparent environmental data for everyday products.</p>
-</div>
-<div class="col-span-1">
-<h4 class="font-label-md text-label-md text-on-background mb-4">Legal</h4>
-<ul class="space-y-2">
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-</ul>
-</div>
-<div class="col-span-1">
-<h4 class="font-label-md text-label-md text-on-background mb-4">Support</h4>
-<ul class="space-y-2">
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Pricing</a></li>
-<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">FAQ</a></li>
-</ul>
-</div>
-</div>
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-8 pt-8 border-t border-outline-variant/30 text-center md:text-left">
-<p class="font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity">© 2024 GreenSeva Sustainability Platform. All rights reserved.</p>
-</div>
-</footer>
-</body></html>
+  <!-- Top Navigation (Shared Component) -->
+  <nav
+    class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl border-b border-white/20 dark:border-inverse-surface/20 shadow-sm transition-all duration-300">
+    <div
+      class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
+      <div class="flex items-center gap-2">
+        <img alt="GreenSeva Logo" class="logo"
+          data-alt="GreenSeva Sustainability Platform Logo, featuring a minimalist green leaf sprouting from gentle hands, conveying eco-friendliness and care."
+          src="GreenSevaLogo.png" />
+      </div>
+      <div class="hidden md:flex items-center gap-6">
+        <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300"
+          href="index.html">Home</a>
+        <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300"
+          href="dashboard.html">Dashboard</a>
+        <a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary pb-1"
+          href="cosmetic.html">Cosmetic</a>
+        <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300"
+          href="foodreview.html">Food Review</a>
+        <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300"
+          href="rewards.html">Rewards</a>
+        <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300"
+          href="about.html">About</a>
+        <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300"
+          href="contact.html">Contact</a>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <button
+          class="font-label-md text-label-md text-primary border border-primary px-4 py-2 rounded-full hover:bg-primary/5 transition-colors">Start
+          Scanning</button>
+        <button
+          class="font-label-md text-label-md bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container transition-colors shadow-sm">Join
+          Now</button>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="md:hidden text-primary p-2">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    </div>
+  </nav>
+  <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+    <!-- Header Section -->
+    <header class="mb-12 text-center md:text-left">
+      <h1 class="font-display-lg text-display-lg text-on-background mb-4">Cosmetic Impact Scanner</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Scan any cosmetic product's barcode or
+        ingredients list to instantly reveal its environmental impact, carbon footprint, and discover eco-friendly
+        alternatives.</p>
+    </header>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+      <!-- Left Column: Scanner & Entry Options -->
+      <div class="lg:col-span-5 space-y-6">
+        <!-- Mode Selector Buttons -->
+        <div class="grid grid-cols-2 gap-3">
+          <button id="tab-btn-upload"
+            class="bg-primary-container text-on-primary-container font-label-md py-2.5 px-4 rounded-full flex items-center justify-center gap-2 shadow-sm transition-all">
+            <span class="material-symbols-outlined text-sm">upload_file</span> Photo Upload
+          </button>
+          <button id="tab-btn-manual"
+            class="border border-outline-variant text-on-surface hover:bg-surface-variant font-label-md py-2.5 px-4 rounded-full flex items-center justify-center gap-2 transition-all">
+            <span class="material-symbols-outlined text-sm">edit_note</span> Manual Entry
+          </button>
+        </div>
+
+        <!-- Photo Upload Card -->
+        <div id="box-upload-photo" class="glass-panel rounded-xl p-6 shadow-sm border border-surface-variant space-y-4">
+          <h3 class="font-headline-md text-headline-md text-primary font-bold">Scan Product Photo</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Upload an image of a cosmetic bottle or
+            ingredient list label from your device.</p>
+
+          <div id="photo-drop-area"
+            class="border-2 border-dashed border-primary/40 rounded-xl p-6 text-center cursor-pointer hover:bg-primary/5 transition-all flex flex-col items-center justify-center gap-2 relative min-h-[160px]">
+            <input type="file" id="cosmetic-photo-input" accept="image/*" class="hidden" />
+            <span class="material-symbols-outlined text-4xl text-primary">add_a_photo</span>
+            <p class="font-label-md text-on-surface font-semibold">Click or drop photo here</p>
+            <p class="font-label-sm text-outline">Supports PNG, JPG, WEBP</p>
+            <img id="photo-preview" class="hidden absolute inset-0 w-full h-full object-cover rounded-xl shadow-md" />
+          </div>
+
+          <button id="btn-analyze-photo" disabled
+            class="w-full bg-primary text-on-primary py-3.5 rounded-full font-label-md text-label-md font-bold shadow-md hover:bg-primary-container transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span class="material-symbols-outlined">analytics</span> Analyze Photo
+          </button>
+        </div>
+
+        <!-- Manual Entry Card -->
+        <div id="box-manual-entry"
+          class="glass-panel rounded-xl p-6 shadow-sm border border-surface-variant space-y-4 hidden">
+          <h3 class="font-headline-md text-headline-md text-primary font-bold">Manual Product Search</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">Enter cosmetic brand, product name, or ingredient
+            list to calculate Eco-Score & harmful toxicity risks.</p>
+
+          <form id="form-cosmetic-manual" class="space-y-4">
+            <div>
+              <label class="block font-label-md text-label-md mb-1">Product Name / Brand</label>
+              <input type="text" id="manual-prod-name" required
+                placeholder="e.g. Organic Herbal Face Wash or Nivea Shampoo"
+                class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" />
+            </div>
+            <div>
+              <label class="block font-label-md text-label-md mb-1">Ingredients List (Optional)</label>
+              <textarea id="manual-prod-ing" rows="3"
+                placeholder="e.g. Aqua, Glycerin, Methylparaben, Sodium Lauryl Sulfate"
+                class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+            </div>
+            <button type="submit" id="btn-manual-submit"
+              class="w-full bg-primary text-on-primary py-3.5 rounded-full font-label-md text-label-md font-bold shadow-md hover:bg-primary-container transition-all flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined">qr_code_scanner</span> Analyze & Earn +20 Points
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Results Dashboard -->
+      <div id="cosmetic-results-col" class="lg:col-span-7 space-y-6">
+
+        <!-- Product Header Info -->
+        <div
+          class="glass-panel rounded-xl p-6 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+              <img class="w-full h-full object-cover"
+                data-alt="A clean, minimalist product shot of a high-end face serum bottle on a plain light background. Studio lighting, sharp focus, showing the sleek packaging."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv8EqxZmeWXItVGtAKXCYkvy34D1QaeKc8ScXsnqv1u5JURKoukVm-aob9WPedNzCIAgZN6pBS32fLrufq4XAoYD0UYyoo73qUxJ-3mMcw5oG_SDn_ta8WBrP_L-d85n78ks16_283RCYmKO6WCijG3tWlKXF8_4DEr4BkRix-asWFy_rY_kmAUmcfPaVq74KWUB6KYYet3qQ0Te9bm9R4A56u1g3JdVRZ-b1ODndma60Az3k1fFw7" />
+            </div>
+            <div>
+              <h2 class="font-headline-md text-headline-md text-on-background">Luminous Face Serum</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Brand: GlowNaturals • 30ml</p>
+            </div>
+          </div>
+          <div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-lg flex items-center gap-2">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+            <span class="font-label-md text-label-md">Verified Data</span>
+          </div>
+        </div>
+        <!-- Top Metrics Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Sustainability Rating (A-E) -->
+          <div
+            class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4 opacity-10">
+              <span class="material-symbols-outlined text-[64px]">eco</span>
+            </div>
+            <h3 class="font-label-md text-label-md text-on-surface-variant mb-4">Sustainability Rating</h3>
+            <div class="flex items-end gap-4">
+              <div
+                class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-display-lg text-display-lg shadow-sm">
+                B
+              </div>
+              <div class="pb-1">
+                <p class="font-body-md text-body-md text-on-background font-medium">Good</p>
+                <p class="font-label-sm text-label-sm text-outline">Top 30% in category</p>
+              </div>
+            </div>
+            <!-- Rating Scale Bar -->
+            <div class="mt-6 flex h-2 rounded-full overflow-hidden">
+              <div class="w-1/5 bg-primary"></div>
+              <div class="w-1/5 bg-secondary"></div>
+              <div class="w-1/5 bg-tertiary-fixed-dim"></div>
+              <div class="w-1/5 bg-[#F9A825]"></div> <!-- Keeping semantic color for scale -->
+              <div class="w-1/5 bg-error"></div>
+            </div>
+            <div class="flex justify-between mt-1 font-label-sm text-label-sm text-outline px-1">
+              <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span>
+            </div>
+          </div>
+          <!-- Carbon Impact Score -->
+          <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm">
+            <h3 class="font-label-md text-label-md text-on-surface-variant mb-4">Carbon Footprint</h3>
+            <div class="flex items-center gap-4 mb-2">
+              <span class="font-headline-lg text-headline-lg text-on-background">2.4</span>
+              <span class="font-body-md text-body-md text-on-surface-variant">kg CO₂e</span>
+            </div>
+            <p class="font-label-sm text-label-sm text-outline mb-4">Per 100ml / Equivalent</p>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-sm">
+                <span class="font-label-sm text-label-sm text-on-surface flex items-center gap-1"><span
+                    class="material-symbols-outlined text-[16px] text-primary">local_shipping</span> Transport</span>
+                <span class="font-label-sm text-label-sm">45%</span>
+              </div>
+              <div class="w-full bg-surface-container-highest rounded-full h-1.5">
+                <div class="bg-tertiary-fixed-dim h-1.5 rounded-full" style="width: 45%"></div>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="font-label-sm text-label-sm text-on-surface flex items-center gap-1"><span
+                    class="material-symbols-outlined text-[16px] text-secondary">factory</span> Production</span>
+                <span class="font-label-sm text-label-sm">35%</span>
+              </div>
+              <div class="w-full bg-surface-container-highest rounded-full h-1.5">
+                <div class="bg-secondary h-1.5 rounded-full" style="width: 35%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Ingredient Breakdown List -->
+        <div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-label-md text-label-md text-on-surface-variant">Key Ingredients Impact</h3>
+            <button class="font-label-sm text-label-sm text-primary hover:underline">View All</button>
+          </div>
+          <div class="space-y-0">
+            <!-- Safe Ingredient -->
+            <div class="py-3 border-b border-surface-variant flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                <span class="font-body-md text-body-md text-on-background">Hyaluronic Acid</span>
+              </div>
+              <span
+                class="bg-primary-container/10 text-primary-container px-2 py-1 rounded font-label-sm text-label-sm">Safe
+                / Low Impact</span>
+            </div>
+            <!-- Moderate Ingredient -->
+            <div class="py-3 border-b border-surface-variant flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+                <span class="font-body-md text-body-md text-on-background">Glycerin (Palm-derived)</span>
+              </div>
+              <span
+                class="bg-tertiary-fixed-dim/10 text-tertiary px-2 py-1 rounded font-label-sm text-label-sm flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">warning</span> Moderate Impact
+              </span>
+            </div>
+            <!-- High Carbon/Flagged Ingredient -->
+            <div class="py-3 flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-error"></div>
+                <span class="font-body-md text-body-md text-on-background line-through opacity-70">Microplastics
+                  (PEG-8)</span>
+              </div>
+              <span
+                class="bg-error-container text-on-error-container px-2 py-1 rounded font-label-sm text-label-sm">High
+                Risk</span>
+            </div>
+          </div>
+        </div>
+        <!-- Eco-Friendly Alternatives Carousel (Static Representation) -->
+        <div class="bg-surface-container-low rounded-xl p-6 shadow-sm">
+          <h3 class="font-label-md text-label-md text-on-surface-variant mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary">recommend</span>
+            Better Alternatives (Rating A)
+          </h3>
+          <div class="flex gap-4 overflow-x-auto pb-4 snap-x">
+            <!-- Alternative Card 1 -->
+            <div
+              class="min-w-[200px] flex-shrink-0 bg-surface-container-lowest border border-surface-variant rounded-lg p-4 snap-start hover:shadow-md transition-shadow">
+              <div class="h-24 w-full bg-surface-container rounded mb-3 overflow-hidden">
+                <img class="w-full h-full object-cover"
+                  data-alt="Minimalist eco-friendly face serum in a frosted glass bottle with a bamboo dropper, placed on a light natural stone surface."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLn8wky8jiHAtXKjjCb_0n2wdvu4_-ERrH7IBE6LT0jrjeICQFqVj5SN8KIilmV50zfJF5RU4dLJiixtriufY1Pn03xk9liyN9wI9TSRn4VxxZnqeSrRMWbJVYFrA0WPx_36a-bUZpawHsaerSZJzqNNkEpNvOuPSUVPtFl2JJMLHF5hp23Ms6O8eo94az7OJKvaY2y0HNjaNEhp_rSV3dtCCGAs5AkwertSXM621xxKz6kFqYzwZR" />
+              </div>
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-label-md text-label-md text-on-background line-clamp-1">Pure Earth Serum</h4>
+                <span class="bg-secondary text-on-secondary text-xs px-1.5 py-0.5 rounded font-bold">A</span>
+              </div>
+              <p class="font-label-sm text-label-sm text-outline mb-3">-40% Carbon Footprint</p>
+              <button
+                class="w-full text-center font-label-sm text-label-sm text-primary border border-primary rounded py-1.5 hover:bg-primary/5 transition-colors">Compare</button>
+            </div>
+            <!-- Alternative Card 2 -->
+            <div
+              class="min-w-[200px] flex-shrink-0 bg-surface-container-lowest border border-surface-variant rounded-lg p-4 snap-start hover:shadow-md transition-shadow">
+              <div class="h-24 w-full bg-surface-container rounded mb-3 overflow-hidden">
+                <img class="w-full h-full object-cover"
+                  data-alt="A clean, green-tinted glass pump bottle of natural skincare serum, isolated on a white background with soft, bright lighting."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Zeris8rpxFNgcipa9dAAdmMGbX4LcQbh0xYfxts3rVf0lmgv-a1ST48EsXHW-KLsYTVMfqbSCv09X9XGXMRFfPgRqwizflwkN1jQRqQi2oMQkbJK-S4kNVFQfcy4r2DJpNHhjtvHjzgSgvvjC3nn8scvud7x6FOdnBw8o3G9wD0izaDInkVd_H_otVxoMbfFyw5t2Z8aKl59BfPoxWMqR01xOJ22kfjYs6SxwHZqmZ-Lz9kMweUE" />
+              </div>
+              <div class="flex justify-between items-start mb-1">
+                <h4 class="font-label-md text-label-md text-on-background line-clamp-1">Botanica Glow</h4>
+                <span class="bg-secondary text-on-secondary text-xs px-1.5 py-0.5 rounded font-bold">A</span>
+              </div>
+              <p class="font-label-sm text-label-sm text-outline mb-3">100% Plant-based</p>
+              <button
+                class="w-full text-center font-label-sm text-label-sm text-primary border border-primary rounded py-1.5 hover:bg-primary/5 transition-colors">Compare</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer (Shared Component) -->
+  <footer
+    class="bg-surface-container-highest dark:bg-inverse-surface w-full py-12 mt-12 border-t border-surface-variant">
+    <div
+      class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="col-span-1 md:col-span-2">
+        <span
+          class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed block mb-4">GreenSeva</span>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6">Empowering conscious consumers with
+          transparent environmental data for everyday products.</p>
+      </div>
+      <div class="col-span-1">
+        <h4 class="font-label-md text-label-md text-on-background mb-4">Legal</h4>
+        <ul class="space-y-2">
+          <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#">Privacy Policy</a></li>
+          <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="col-span-1">
+        <h4 class="font-label-md text-label-md text-on-background mb-4">Support</h4>
+        <ul class="space-y-2">
+          <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#">Pricing</a></li>
+          <li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+              href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-8 pt-8 border-t border-outline-variant/30 text-center md:text-left">
+      <p class="font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity">©
+        2024 GreenSeva Sustainability Platform. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/app.js"></script>
+  <script src="js/cosmetic.js"></script>
+</body>
+
+</html>

@@ -143,7 +143,7 @@
 <!-- Welcome Header & Eco Score -->
 <header class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
 <div>
-<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Welcome back Sofiya!</h1>
+<h1 id="dash-welcome" class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Welcome back!</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant">Your eco-journey is making a real difference today.</p>
 </div>
 <div class="glass-card rounded-xl p-4 flex items-center gap-4 min-w-[250px]">
@@ -151,8 +151,8 @@
 <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
 </div>
 <div>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Eco Score</p>
-<p class="font-headline-md text-headline-md text-primary font-bold">850 <span class="font-body-md text-body-md font-normal text-on-surface-variant">pts</span></p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Green Points</p>
+<p class="font-headline-md text-headline-md text-primary font-bold"><span id="dash-green-points">...</span> <span class="font-body-md text-body-md font-normal text-on-surface-variant">pts</span></p>
 </div>
 </div>
 </header>
@@ -164,21 +164,21 @@
 <div class="relative w-48 h-48 flex items-center justify-center">
 <svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
 <circle class="text-surface-container-highest" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="8"></circle>
-<circle class="text-primary progress-ring stroke-current" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="70" stroke-width="8"></circle>
+<circle id="dash-co2-ring" class="text-primary progress-ring stroke-current" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="212" stroke-width="8"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-<span class="font-headline-lg text-headline-lg text-primary font-bold">75%</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">of weekly goal</span>
+<span id="dash-co2-pct" class="font-headline-lg text-headline-lg text-primary font-bold">0%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">of monthly goal</span>
 </div>
 </div>
 <div class="mt-6 flex justify-between w-full text-center">
 <div>
 <p class="font-label-sm text-label-sm text-on-surface-variant">Saved</p>
-<p class="font-body-lg text-body-lg text-primary font-semibold">12.4 kg</p>
+<p id="dash-co2-saved" class="font-body-lg text-body-lg text-primary font-semibold">0 kg</p>
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-on-surface-variant">Target</p>
-<p class="font-body-lg text-body-lg text-on-surface">15.0 kg</p>
+<p class="font-body-lg text-body-lg text-on-surface">30.0 kg</p>
 </div>
 </div>
 </div>
@@ -206,48 +206,13 @@
 <!-- Recent Activity Feed -->
 <div class="glass-card rounded-xl p-6 flex-grow">
 <div class="flex justify-between items-center mb-6">
-<h2 class="font-headline-md text-headline-md text-on-surface">Recent Activity</h2>
-<a class="font-label-md text-label-md text-primary hover:underline" href="#">View All</a>
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Scans & Activity</h2>
+<a class="font-label-md text-label-md text-primary hover:underline" href="cosmetic.html">Scan Now</a>
 </div>
-<ul class="space-y-4">
-<li class="flex items-center gap-4 py-2 border-b border-surface-container-highest last:border-0">
-<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-xl">qr_code_scanner</span>
-</div>
-<div class="flex-grow">
-<p class="font-body-md text-body-md text-on-surface font-medium">Scanned Sunscreen</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Eco-friendly brand verified</p>
-</div>
-<div class="text-right">
-<span class="font-label-md text-label-md text-secondary font-bold">+50 pts</span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">2h ago</p>
-</div>
-</li>
-<li class="flex items-center gap-4 py-2 border-b border-surface-container-highest last:border-0">
-<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined text-xl">pedal_bike</span>
-</div>
-<div class="flex-grow">
-<p class="font-body-md text-body-md text-on-surface font-medium">Cyced to Work</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">5km journey logged</p>
-</div>
-<div class="text-right">
-<span class="font-label-md text-label-md text-secondary font-bold">+120 pts</span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Yesterday</p>
-</div>
-</li>
-<li class="flex items-center gap-4 py-2 border-b border-surface-container-highest last:border-0">
-<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
-<span class="material-symbols-outlined text-xl">recycling</span>
-</div>
-<div class="flex-grow">
-<p class="font-body-md text-body-md text-on-surface font-medium">Recycling Challenge</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Completed weekly goal</p>
-</div>
-<div class="text-right">
-<span class="font-label-md text-label-md text-secondary font-bold">+200 pts</span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">2 days ago</p>
-</div>
+<ul id="dash-activity-feed" class="space-y-4">
+<li class="text-center py-6 text-on-surface-variant">
+  <span class="material-symbols-outlined text-4xl animate-spin text-primary">progress_activity</span>
+  <p class="font-body-md mt-2">Loading activity...</p>
 </li>
 </ul>
 </div>
@@ -268,68 +233,61 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Current Level</p>
-<h3 class="font-headline-md text-headline-md text-primary font-bold">Eco-Warrior</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">150 pts to next level</p>
+<h3 id="dash-level" class="font-headline-md text-headline-md text-primary font-bold">...</h3>
+<p id="dash-pts-to-next" class="font-body-sm text-body-sm text-on-surface-variant mt-1">Loading...</p>
 </div>
 </div>
-<div class="flex gap-4">
-<div class="flex flex-col items-center gap-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
-<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface-variant">local_florist</span>
+<div class="grid grid-cols-4 gap-3">
+  <div id="badge-scanner" class="flex flex-col items-center gap-1 cursor-pointer transition-all">
+    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+      <span class="material-symbols-outlined text-on-surface-variant">qr_code_scanner</span>
+    </div>
+    <span class="font-label-sm text-label-sm text-center">Scanner</span>
+  </div>
+  <div id="badge-rescuer" class="flex flex-col items-center gap-1 cursor-pointer transition-all">
+    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+      <span class="material-symbols-outlined text-on-surface-variant">volunteer_activism</span>
+    </div>
+    <span class="font-label-sm text-label-sm text-center">Rescuer</span>
+  </div>
+  <div id="badge-planter" class="flex flex-col items-center gap-1 cursor-pointer transition-all">
+    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+      <span class="material-symbols-outlined text-on-surface-variant">local_florist</span>
+    </div>
+    <span class="font-label-sm text-label-sm text-center">Planter</span>
+  </div>
+  <div id="badge-streak" class="flex flex-col items-center gap-1 cursor-pointer transition-all">
+    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+      <span class="material-symbols-outlined text-on-surface-variant">local_fire_department</span>
+    </div>
+    <span class="font-label-sm text-label-sm text-center">Streak</span>
+  </div>
 </div>
-<span class="font-label-sm text-label-sm text-center">Planter</span>
 </div>
-<div class="flex flex-col items-center gap-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
-<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface-variant">water_drop</span>
-</div>
-<span class="font-label-sm text-label-sm text-center">Saver</span>
-</div>
-</div>
-</div>
-<!-- Weekly Challenges -->
+<!-- Stats Grid -->
 <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-container-highest">
-<div class="flex justify-between items-center mb-6">
-<h2 class="font-headline-md text-headline-md text-on-surface">Weekly Challenges</h2>
-<span class="bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-full">2/3 Completed</span>
-</div>
-<div class="space-y-4">
-<!-- Completed Challenge -->
-<div class="flex items-center gap-4 bg-surface p-3 rounded-lg border border-surface-container-high opacity-70">
-<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white flex-shrink-0">
-<span class="material-symbols-outlined text-sm">check</span>
-</div>
-<div class="flex-grow">
-<p class="font-body-md text-body-md text-on-surface line-through">Meatless Monday</p>
-</div>
-<span class="font-label-sm text-label-sm text-secondary">+100</span>
-</div>
-<!-- Active Challenge -->
-<div class="flex items-center gap-4 bg-surface p-3 rounded-lg border border-primary-container/30 shadow-sm">
-<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center flex-shrink-0">
-<!-- empty -->
-</div>
-<div class="flex-grow">
-<p class="font-body-md text-body-md text-on-surface font-medium">Share leftover food</p>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
-<div class="bg-primary h-1.5 rounded-full" style="width: 50%"></div>
-</div>
-</div>
-<span class="font-label-sm text-label-sm text-secondary font-bold">+150</span>
-</div>
-<!-- Active Challenge -->
-<div class="flex items-center gap-4 bg-surface p-3 rounded-lg border border-surface-container-high">
-<div class="w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center flex-shrink-0">
-<!-- empty -->
-</div>
-<div class="flex-grow">
-<p class="font-body-md text-body-md text-on-surface">Use reusable bags 3 times</p>
-<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
-<div class="bg-primary h-1.5 rounded-full" style="width: 33%"></div>
-</div>
-</div>
-<span class="font-label-sm text-label-sm text-secondary">+75</span>
-</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Your Eco Stats</h2>
+<div class="grid grid-cols-2 gap-4">
+  <div class="bg-primary/5 rounded-xl p-4 text-center border border-primary/10">
+    <span class="material-symbols-outlined text-primary text-2xl">qr_code_scanner</span>
+    <p id="dash-scan-count" class="font-headline-md text-headline-md text-primary font-bold mt-1">...</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">Products Scanned</p>
+  </div>
+  <div class="bg-secondary/5 rounded-xl p-4 text-center border border-secondary/10">
+    <span class="material-symbols-outlined text-secondary text-2xl">volunteer_activism</span>
+    <p id="dash-items-rescued" class="font-headline-md text-headline-md text-secondary font-bold mt-1">...</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">Items Rescued</p>
+  </div>
+  <div class="bg-tertiary/5 rounded-xl p-4 text-center border border-tertiary/10">
+    <span class="material-symbols-outlined text-tertiary text-2xl">local_fire_department</span>
+    <p id="dash-streak" class="font-headline-md text-headline-md text-tertiary font-bold mt-1">...</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">Day Streak</p>
+  </div>
+  <div class="bg-primary/5 rounded-xl p-4 text-center border border-primary/10">
+    <span class="material-symbols-outlined text-primary text-2xl">co2</span>
+    <p id="dash-co2-stat" class="font-headline-md text-headline-md text-primary font-bold mt-1">...</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant">CO₂ Saved (kg)</p>
+  </div>
 </div>
 </div>
 </div>
@@ -350,4 +308,6 @@
 </div>
 </div>
 </footer>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
 </body></html>
