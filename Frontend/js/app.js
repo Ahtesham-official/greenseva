@@ -2,9 +2,12 @@
  * GreenSeva Global Application & Frontend Integration Script
  */
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:8000/api'
+  : 'https://greenseva-backend.onrender.com/api'; // <--- Replace with your live Render backend URL after creating the service
 const TOKEN_KEY = 'gsToken';
 const PROTECTED_PAGES = ['dashboard.html', 'cosmetic.html', 'foodreview.html', 'rewards.html'];
+
 
 
 // Toast Notification System
@@ -96,31 +99,33 @@ function getCurrentPageName() {
 function enforceRouteProtection() {
   const currentPage = getCurrentPageName();
   if (PROTECTED_PAGES.includes(currentPage) && !currentUser) {
-    // Lock content and open Auth modal
     sessionStorage.setItem('gs_redirect_target', currentPage);
     renderAuthModal();
-    openAuthModal('login');
-    showToast('Please log in or sign up to access this page.', 'error');
-    
+
+    setTimeout(() => {
+      openAuthModal('login');
+      showToast('Please log in or sign up to access this page.', 'error');
+    }, 100);
+
     // Add non-interactive blur overlay over main content if modal is closed without login
     let lockOverlay = document.getElementById('gs-lock-overlay');
     if (!lockOverlay) {
       lockOverlay = document.createElement('div');
       lockOverlay.id = 'gs-lock-overlay';
-      lockOverlay.className = 'fixed inset-0 z-[9985] bg-black/40 backdrop-blur-md flex flex-col items-center justify-center text-center p-6';
+      lockOverlay.className = 'fixed inset-0 z-[9985] bg-black/85 backdrop-blur-xl flex flex-col items-center justify-center text-center p-6';
       lockOverlay.innerHTML = `
-        <div class="glass-panel p-8 rounded-2xl max-w-md w-full bg-surface text-on-surface shadow-2xl border border-primary/30">
-          <span class="material-symbols-outlined text-6xl text-primary mb-3">lock</span>
+        <div class="bg-surface text-on-surface p-8 rounded-2xl max-w-md w-full shadow-2xl border border-primary/40 relative z-[9986] opacity-100">
+          <span class="material-symbols-outlined text-6xl text-primary mb-3 font-bold">lock</span>
           <h2 class="font-headline-lg text-headline-lg text-primary font-bold mb-2">Login Required</h2>
-          <p class="font-body-md text-on-surface-variant mb-6">You must be logged in to view your Dashboard and access GreenSeva features.</p>
+          <p class="font-body-md text-on-surface-variant font-medium mb-6">You must be logged in to view your Dashboard and access GreenSeva features.</p>
           <div class="flex flex-col gap-3">
-            <button onclick="openAuthModal('login')" class="w-full bg-primary text-on-primary py-3 rounded-full font-label-md font-bold shadow-md hover:bg-primary-container transition-all">
+            <button onclick="openAuthModal('login')" class="w-full bg-primary text-on-primary py-3.5 rounded-full font-label-md font-bold shadow-lg hover:bg-primary-container transition-all">
               Log In Now
             </button>
-            <button onclick="openAuthModal('register')" class="w-full border border-primary text-primary py-3 rounded-full font-label-md font-bold hover:bg-primary/5 transition-all">
+            <button onclick="openAuthModal('register')" class="w-full border-2 border-primary text-primary py-3 rounded-full font-label-md font-bold hover:bg-primary/10 transition-all">
               Create New Account
             </button>
-            <a href="index.html" class="font-label-md text-on-surface-variant hover:underline mt-2 inline-block">Return to Home</a>
+            <a href="index.html" class="font-label-md text-on-surface-variant hover:text-primary hover:underline mt-2 inline-block font-semibold">Return to Home</a>
           </div>
         </div>
       `;
@@ -176,8 +181,8 @@ function renderAuthModal() {
   if (document.getElementById('gs-auth-modal')) return;
 
   const modalHtml = `
-    <div id="gs-auth-modal" class="fixed inset-0 z-[9990] hidden flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity">
-      <div class="glass-panel bg-surface rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative border border-white/40 animate-in fade-in zoom-in duration-200">
+    <div id="gs-auth-modal" class="fixed inset-0 z-[9990] hidden flex items-center justify-center bg-black/80 backdrop-blur-md p-4 transition-opacity">
+      <div class="bg-surface text-on-surface rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative border border-primary/30 z-[9995] opacity-100 animate-in fade-in zoom-in duration-200">
         <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-1 rounded-full">
           <span class="material-symbols-outlined">close</span>
         </button>
@@ -383,12 +388,72 @@ function normalizeHeaderLinks() {
   links.forEach(l => l.setAttribute('href', 'foodreview.html'));
 }
 
+// GSAP Global Entrance Animations
+function initGSAPAnimations() {
+  if (typeof gsap === 'undefined') return;
+
+  // Animate Navbar
+  gsap.from('nav#topNav, nav', {
+    y: -30,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out'
+  });
+
+  // Animate Header / Main Hero Titles & Subtitles
+  if (document.querySelector('h1')) {
+    gsap.from('h1', {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.2,
+      ease: 'power3.out'
+    });
+  }
+
+  if (document.querySelector('main header p, main p.text-body-lg')) {
+    gsap.from('main header p, main p.text-body-lg', {
+      y: 20,
+      opacity: 0,
+      duration: 0.7,
+      delay: 0.35,
+      ease: 'power2.out'
+    });
+  }
+
+  // Animate Glass Panels & Hero Cards
+  if (document.querySelectorAll('.glass-panel, .bg-gradient-to-r').length > 0) {
+    gsap.from('.glass-panel, .bg-gradient-to-r', {
+      y: 25,
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.3,
+      stagger: 0.1,
+      ease: 'power2.out'
+    });
+  }
+
+  // Animate General Card Containers (Grid items)
+  const cards = document.querySelectorAll('.grid > div');
+  if (cards.length > 0) {
+    gsap.from(cards, {
+      y: 30,
+      opacity: 0,
+      duration: 0.7,
+      delay: 0.4,
+      stagger: 0.08,
+      ease: 'power2.out'
+    });
+  }
+}
+
 // Execute on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   renderAuthModal();
   checkAuth();
   setupMobileMenu();
   normalizeHeaderLinks();
+  initGSAPAnimations();
 });
 
 // initApp — awaitable version of checkAuth for page scripts

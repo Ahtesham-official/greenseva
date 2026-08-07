@@ -255,4 +255,13 @@ function renderScanResults(data, pointsEarned = 0) {
       </div>
     </div>
   `;
+
+  if (typeof gsap !== 'undefined') {
+    gsap.from('#cosmetic-results-col > div', {
+      y: 20,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out'
+    });
+  }
 }

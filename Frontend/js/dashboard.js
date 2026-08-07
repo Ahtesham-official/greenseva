@@ -2,15 +2,12 @@
  * dashboard.js — GreenSeva Dashboard (fully dynamic, API-driven)
  */
 (async function () {
-  // Wait for app.js to initialize
+  // Wait for app.js to initialize & run auth check
   if (typeof initApp === 'function') await initApp();
 
-  // TOKEN_KEY is 'gsToken', defined in app.js (which loads first)
-  const token = localStorage.getItem(typeof TOKEN_KEY !== 'undefined' ? TOKEN_KEY : 'gsToken');
-  if (!token) {
-    window.location.href = 'index.html';
-    return;
-  }
+  // If user is not authenticated, app.js enforceRouteProtection handles opening the login modal & lock overlay
+  if (!currentUser) return;
+
 
   // ── Helper: safe element update ────────────────────────────────────────────
   const set = (id, val) => {
