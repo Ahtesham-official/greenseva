@@ -9,10 +9,21 @@ const allowedOrigins = [
   "https://greenseva-4epnvcobc-ahteshamofficial357-4057s-projects.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000",
+  "http://127.0.0.1:5500",
+  "http://localhost:5500"
 ];
 
 app.use(cors({
-  origin: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all origins for hackathon deployment compatibility if needed
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
 app.use(express.json({ limit: '15mb' }));

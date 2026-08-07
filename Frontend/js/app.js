@@ -3,8 +3,8 @@
  */
 
 const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-  ? (localStorage.getItem('useLocalBackend') === 'true' ? 'http://localhost:8000/api' : 'https://greensevaproject.onrender.com/api')
-  : 'https://greensevaproject.onrender.com/api';
+  ? (localStorage.getItem('useLocalBackend') === 'true' ? 'http://localhost:8000/api' : 'https://greenseva-backend.onrender.com/api')
+  : 'https://greenseva-backend.onrender.com/api';
 const TOKEN_KEY = 'gsToken';
 const PROTECTED_PAGES = ['dashboard.html', 'cosmetic.html', 'foodreview.html', 'rewards.html'];
 
@@ -201,7 +201,7 @@ function renderAuthModal() {
           </div>
           <div>
             <label class="block font-label-md text-label-md mb-1 text-on-surface">Password</label>
-            <input type="password" id="login-password" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="••••••••"/>
+            <input type="password" id="login-password" autocomplete="current-password" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="••••••••"/>
           </div>
           <button type="submit" class="w-full bg-primary text-on-primary py-3.5 rounded-full font-label-md text-label-md font-bold shadow-md hover:bg-primary-container transition-all mt-2">
             Log In to GreenSeva
@@ -212,15 +212,15 @@ function renderAuthModal() {
         <form id="form-register" onsubmit="submitRegister(event)" class="space-y-4 hidden">
           <div>
             <label class="block font-label-md text-label-md mb-1 text-on-surface">Full Name</label>
-            <input type="text" id="register-name" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Sofiya Sharma"/>
+            <input type="text" id="register-name" autocomplete="name" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Sofiya Sharma"/>
           </div>
           <div>
             <label class="block font-label-md text-label-md mb-1 text-on-surface">Email Address</label>
-            <input type="email" id="register-email" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="name@example.com"/>
+            <input type="email" id="register-email" autocomplete="email" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="name@example.com"/>
           </div>
           <div>
             <label class="block font-label-md text-label-md mb-1 text-on-surface">Password</label>
-            <input type="password" id="register-password" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="••••••••"/>
+            <input type="password" id="register-password" autocomplete="new-password" required class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:outline-none" placeholder="••••••••"/>
           </div>
           <div>
             <label class="block font-label-md text-label-md mb-1 text-on-surface">Account Type</label>
