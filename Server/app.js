@@ -4,25 +4,33 @@ const cors = require('cors');
 const app = express();
 
 const allowedOrigins = [
+  "https://greenseva.vercel.app",
   "https://greenseva-git-main-ahteshamofficial357-4057s-projects.vercel.app",
   "https://greenseva-4epnvcobc-ahteshamofficial357-4057s-projects.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000",
-  "https://greenseva.vercel.app"
 ];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log("Blocked Origin:", origin);
-      callback(new Error('Not allowed by CORS'));
+  origin(origin, callback) {
+    console.log("Origin:", origin);
+
+    if (!origin) {
+      return callback(null, true);
     }
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(null, false);
   },
-  credentials: true
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 }));
+
+app.options("*", cors());
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ limit: '15mb', extended: true }));
 
