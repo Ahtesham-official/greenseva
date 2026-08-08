@@ -2,3 +2,35 @@
   width: 200px;
   height: 150px;
 }
+
+/* Enhanced Glassmorphism for High-Contrast Text Legibility over Video/Canvas Backgrounds */
+.glass-panel-heavy,
+.glass-card-heavy {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(0, 50, 20, 0.08);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-panel-heavy,
+.dark .glass-card-heavy {
+  background: rgba(24, 29, 25, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Backdrop darkener overlay for background video pages */
+.bg-video-overlay {
+  background: radial-gradient(circle at center, rgba(246, 251, 244, 0.4) 0%, rgba(246, 251, 244, 0.85) 100%);
+  pointer-events: none;
+}
