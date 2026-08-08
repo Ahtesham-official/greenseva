@@ -279,4 +279,15 @@ document.addEventListener('DOMContentLoaded', () => {
             lerpFactor: 0.08
         });
     }
+
+    // 4. Dashboard, Cosmetic & Food Review Background Sequence
+    if (document.getElementById('ezgif-bg-canvas')) {
+        window.ezgifBgSequence = new ScrollSequence({
+            canvasId: 'ezgif-bg-canvas',
+            folderPath: 'ezgif-7fe2327c752df20e-jpg',
+            prefix: 'ezgif-frame-',
+            frameCount: 300,
+            lerpFactor: 0.08
+        });
+    }
 });
