@@ -49,9 +49,12 @@ class ScrollSequence {
             img.src = this.getFrameUrl(i);
             img.onload = () => {
                 this.loadedCount++;
-                if (i === 0) {
+                if (this.loadedCount === 1 || i === 0) {
                     this.render(true);
                 }
+            };
+            img.onerror = () => {
+                img.failed = true;
             };
             this.images.push(img);
         }
@@ -68,10 +71,8 @@ class ScrollSequence {
         let clampedProgress = 0;
 
         if (this.isFullPage) {
-            const totalScrollable = document.documentElement.scrollHeight - window.innerHeight;
-            if (totalScrollable > 0) {
-                clampedProgress = Math.max(0, Math.min(1, window.scrollY / totalScrollable));
-            }
+            const totalScrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+            clampedProgress = Math.max(0, Math.min(1, window.scrollY / totalScrollable));
         } else if (this.section) {
             const rect = this.section.getBoundingClientRect();
             const totalScrollable = this.section.clientHeight - window.innerHeight;
@@ -140,20 +141,20 @@ class ScrollSequence {
         this.lastRenderedFrame = frameIndex;
 
         let img = this.images[frameIndex];
-        if (!img || !img.complete) {
+        if (!img || !img.complete || img.failed) {
             for (let offset = 1; offset < this.frameCount; offset++) {
-                if (frameIndex - offset >= 0 && this.images[frameIndex - offset] && this.images[frameIndex - offset].complete) {
+                if (frameIndex - offset >= 0 && this.images[frameIndex - offset] && this.images[frameIndex - offset].complete && !this.images[frameIndex - offset].failed) {
                     img = this.images[frameIndex - offset];
                     break;
                 }
-                if (frameIndex + offset < this.frameCount && this.images[frameIndex + offset] && this.images[frameIndex + offset].complete) {
+                if (frameIndex + offset < this.frameCount && this.images[frameIndex + offset] && this.images[frameIndex + offset].complete && !this.images[frameIndex + offset].failed) {
                     img = this.images[frameIndex + offset];
                     break;
                 }
             }
         }
 
-        if (img && img.complete) {
+        if (img && img.complete && !img.failed) {
             this.drawCoverImage(img);
         }
 
@@ -264,6 +265,17 @@ document.addEventListener('DOMContentLoaded', () => {
             frameDisplayId: 'about-frame-counter',
             captionsSelector: '.about-seq-caption',
             frameCount: 240,
+            lerpFactor: 0.08
+        });
+    }
+
+    // 3. Rewards Page Background Coin Falling Sequence
+    if (document.getElementById('rewards-bg-canvas')) {
+        window.rewardsBgSequence = new ScrollSequence({
+            canvasId: 'rewards-bg-canvas',
+            folderPath: 'Coin_falling_in_slow_motion_202608072043_frames/Coin_falling_in_slow_motion_202608072043_frames',
+            prefix: 'frame_',
+            frameCount: 103,
             lerpFactor: 0.08
         });
     }
