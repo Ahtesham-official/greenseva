@@ -115,7 +115,12 @@
         }
     </style>
 </head>
-<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden relative">
+<!-- Full Screen Scroll-Driven Slow-Motion Background Video Canvas -->
+<div class="fixed inset-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+<canvas id="bg-sequence-canvas" class="w-full h-full object-cover opacity-35"></canvas>
+<div class="absolute inset-0 bg-gradient-to-b from-surface/85 via-surface/65 to-surface/90"></div>
+</div>
 <!-- Top Navigation (Shared Component) -->
 <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300" id="topNav">
 <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
@@ -148,28 +153,28 @@
 <h1 class="font-display-lg text-display-lg text-on-background mb-4">Contact Us</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-8">Have a question or want to partner with us? Reach out and we’ll respond as soon as possible.</p>
 <div class="grid gap-6 md:grid-cols-2">
-<div class="bg-surface-container-low rounded-3xl p-8 shadow-sm">
+<div class="bg-surface-container-low/90 backdrop-blur-md rounded-3xl p-8 shadow-sm border border-outline-variant/30">
 <h2 class="font-headline-md text-headline-md text-on-background mb-4">Get in Touch</h2>
 <p class="font-body-md text-body-md text-on-surface-variant mb-4">Email: greenseva.zenova@gmail.com</p>
 <p class="font-body-md text-body-md text-on-surface-variant mb-4">Phone: +91 7409903455</p>
 <p class="font-body-md text-body-md text-on-surface-variant">Address: Eco City, Mumbai</p>
 </div>
-<div class="bg-surface-container-low rounded-3xl p-8 shadow-sm">
+<div class="bg-surface-container-low/90 backdrop-blur-md rounded-3xl p-8 shadow-sm border border-outline-variant/30">
 <h2 class="font-headline-md text-headline-md text-on-background mb-4">Send a Message</h2>
 <form class="space-y-4">
 <div>
 <label class="font-label-sm text-label-sm text-on-surface-variant block mb-2" for="name">Name</label>
-<input class="w-full rounded-xl border border-surface-variant bg-surface px-4 py-3" id="name" type="text" placeholder="eg: Sofiya Gowda"/>
+<input class="w-full rounded-xl border border-surface-variant bg-surface/80 px-4 py-3" id="name" type="text" placeholder="eg: Sofiya Gowda"/>
 </div>
 <div>
 <label class="font-label-sm text-label-sm text-on-surface-variant block mb-2" for="email">Email</label>
-<input class="w-full rounded-xl border border-surface-variant bg-surface px-4 py-3" id="email" type="email" placeholder="eg: sofiyasonu128@gmail.com"/>
+<input class="w-full rounded-xl border border-surface-variant bg-surface/80 px-4 py-3" id="email" type="email" placeholder="eg: sofiyasonu128@gmail.com"/>
 </div>
 <div>
 <label class="font-label-sm text-label-sm text-on-surface-variant block mb-2" for="message">Message</label>
-<textarea class="w-full rounded-xl border border-surface-variant bg-surface px-4 py-3" id="message" rows="5" placeholder="Write your message here..."></textarea>
+<textarea class="w-full rounded-xl border border-surface-variant bg-surface/80 px-4 py-3" id="message" rows="5" placeholder="Write your message here..."></textarea>
 </div>
-<button type="submit" class="bg-primary text-on-primary rounded-full px-6 py-3 font-label-md text-label-md hover:bg-primary/90 transition-colors">Send Message</button>
+<button type="submit" class="bg-primary text-on-primary rounded-full px-6 py-3 font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-md">Send Message</button>
 </form>
 </div>
 </div>
@@ -178,5 +183,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/contact.js"></script>
+<script src="js/scroll-sequence.js"></script>
 </body>
 </html>

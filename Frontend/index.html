@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GreenSeva - Sustainable Living</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
-<script id="tailwind-config">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GreenSeva - Sustainable Living</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -100,8 +108,7 @@
             }
         }
     </script>
-<style>
-        
+    <style>
         .text-gradient {
             background-clip: text;
             -webkit-background-clip: text;
@@ -110,128 +117,173 @@
         }
     </style>
 </head>
-<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
-<!-- Top Navigation (Shared Component) -->
-<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300" id="topNav">
-<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
-<!-- Brand -->
-<a class="flex items-center gap-2" href="index.html">
-<img alt="GreenSeva Logo" class="logo" data-alt="GreenSeva Sustainability Platform Logo, featuring a minimalist green leaf sprouting from gentle hands, conveying eco-friendliness and care." src="GreenSevaLogo.png" />
-</a>
-<!-- Desktop Navigation Links -->
-<div class="hidden md:flex items-center gap-6">
-<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 transition-colors duration-300" href="index.html">Home</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="dashboard.html">Dashboard</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="cosmetic.html">Cosmetic</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="foodreview.html">Food Review</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="rewards.html">Rewards</a>
 
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="contact.html">Contact</a>
-</div>
-<!-- Actions -->
-<div class="hidden md:flex items-center gap-4">
-<button onclick="window.location.href='cosmetic.html'" class="font-label-md text-label-md text-primary border border-primary px-4 py-2 rounded-full hover:bg-primary/5 transition-colors">Start Scanning</button>
-<button onclick="openAuthModal('register')" class="font-label-md text-label-md bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container transition-colors shadow-sm">Join Now</button>
-</div>
-<!-- Mobile Menu Toggle -->
-<button class="md:hidden text-primary p-2">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</nav>
-<main class="pt-20">
-<!-- Hero Section -->
-<section class="relative min-h-[90vh] flex items-center justify-center px-margin-mobile md:px-margin-desktop py-20 overflow-hidden">
-<!-- Decorative Background Elements -->
-<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-fixed opacity-20 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/4"></div>
-<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary-container opacity-30 rounded-full blur-3xl -z-10 -translate-x-1/4 translate-y-1/4"></div>
-<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
-<div class="space-y-8 z-10">
-<div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-surface-variant shadow-sm">
-<span class="material-symbols-outlined text-secondary text-sm">eco</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Join the green revolution</span>
-</div>
-<h1 class="font-display-lg text-display-lg text-on-background leading-tight">
-                        Make sustainable living <br class="hidden lg:block"/>
-<span class="text-gradient">easy, rewarding,</span> and meaningful.
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden relative">
+    <!-- Full Screen Scroll-Driven Slow-Motion Background Video Canvas -->
+    <div class="fixed inset-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+        <canvas id="bg-sequence-canvas" class="w-full h-full object-cover"></canvas>
+    </div>
+    <!-- Top Navigation (Shared Component) -->
+    <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300"
+        id="topNav">
+        <div
+            class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
+            <!-- Brand -->
+            <a class="flex items-center gap-2" href="index.html">
+                <img alt="GreenSeva Logo" class="logo"
+                    data-alt="GreenSeva Sustainability Platform Logo, featuring a minimalist green leaf sprouting from gentle hands, conveying eco-friendliness and care."
+                    src="GreenSevaLogo.png" />
+            </a>
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-6">
+                <a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 transition-colors duration-300"
+                    href="index.html">Home</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="dashboard.html">Dashboard</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="cosmetic.html">Cosmetic</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="foodreview.html">Food Review</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="rewards.html">Rewards</a>
+
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="about.html">About</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="contact.html">Contact</a>
+            </div>
+            <!-- Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <button onclick="window.location.href='cosmetic.html'"
+                    class="font-label-md text-label-md text-primary border border-primary px-4 py-2 rounded-full hover:bg-primary/5 transition-colors">Start
+                    Scanning</button>
+                <button onclick="openAuthModal('register')"
+                    class="font-label-md text-label-md bg-primary text-on-primary px-6 py-2 rounded-full hover:bg-primary-container transition-colors shadow-sm">Join
+                    Now</button>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-primary p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-[90vh] flex items-center justify-center px-margin-mobile md:px-margin-desktop py-20 overflow-hidden">
+            <!-- Decorative Background Elements -->
+            <div
+                class="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-fixed opacity-20 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/4">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary-container opacity-30 rounded-full blur-3xl -z-10 -translate-x-1/4 translate-y-1/4">
+            </div>
+            <div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+                <div class="space-y-8 z-10">
+                    <div
+                        class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-surface-variant shadow-sm">
+                        <span class="material-symbols-outlined text-secondary text-sm">eco</span>
+                        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Join
+                            the green revolution</span>
+                    </div>
+                    <h1 class="font-display-lg text-display-lg text-on-background leading-tight">
+                        Make sustainable living <br class="hidden lg:block" />
+                        <span class="text-gradient">easy, rewarding,</span> and meaningful.
                     </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                        Empowering individuals to make eco-friendly choices every day. Scan products, track your carbon footprint, and earn rewards for a healthier planet.
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Empowering individuals to make eco-friendly choices every day. Scan products, track your carbon
+                        footprint, and earn rewards for a healthier planet.
                     </p>
-<div class="flex flex-col sm:flex-row gap-4 pt-4">
-<button onclick="openAuthModal('register')" class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 h-12">
-<span>Get Started Free</span>
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
-<button onclick="window.location.href='cosmetic.html'" class="bg-surface text-primary border border-outline-variant font-label-md text-label-md px-8 py-4 rounded-full shadow-sm hover:bg-surface-container-low transition-all flex items-center justify-center gap-2 h-12">
-<span class="material-symbols-outlined">play_circle</span>
-<span>See How it Works</span>
-</button>
-</div>
-<!-- Replaced numerical count with a qualitative trust badge -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <button onclick="openAuthModal('register')"
+                            class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 h-12">
+                            <span>Get Started Free</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                        <button onclick="window.location.href='cosmetic.html'"
+                            class="bg-surface text-primary border border-outline-variant font-label-md text-label-md px-8 py-4 rounded-full shadow-sm hover:bg-surface-container-low transition-all flex items-center justify-center gap-2 h-12">
+                            <span class="material-symbols-outlined">play_circle</span>
+                            <span>See How it Works</span>
+                        </button>
+                    </div>
+                    <!-- Replaced numerical count with a qualitative trust badge -->
 
-</div>
-<!-- Hero Visual (Bento-style layout) -->
-<div class="relative z-10 h-full min-h-[500px] w-full mt-12 lg:mt-0">
-<div class="grid grid-cols-2 gap-4 h-full">
-<!-- Main Image -->
-<div class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-xl flex items-center gap-4">
-<div class="bg-primary-container text-on-primary-container p-2 rounded-full">
-<span class="material-symbols-outlined">qr_code_scanner</span>
-</div>
-<div>
-<h3 class="font-label-md text-label-md text-white">Instant Eco-Analysis</h3>
-<p class="font-label-sm text-label-sm text-white/80">Scan any product to reveal its true impact.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Feature Highlights Section (Replaces Stats Section) -->
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-<div class="text-center space-y-2 flex flex-col items-center">
-<span class="material-symbols-outlined text-primary text-4xl mb-1">qr_code_scanner</span>
-<div class="font-headline-md text-headline-md text-primary font-bold">Smart Scan</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Instant Product Breakdown</div>
-</div>
-<div class="text-center space-y-2 flex flex-col items-center">
-<span class="material-symbols-outlined text-secondary text-4xl mb-1">nest_eco_leaf</span>
-<div class="font-headline-md text-headline-md text-secondary font-bold">Eco Verified</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Trusted Green Standards</div>
-</div>
-<div class="text-center space-y-2 flex flex-col items-center">
-<span class="material-symbols-outlined text-primary text-4xl mb-1">compost</span>
-<div class="font-headline-md text-headline-md text-primary font-bold">Food Rescue</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Reduce Waste Locally</div>
-</div>
-<div class="text-center space-y-2 flex flex-col items-center">
-<span class="material-symbols-outlined text-secondary text-4xl mb-1">card_membership</span>
-<div class="font-headline-md text-headline-md text-secondary font-bold">Eco Rewards</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Perks For Green Choices</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer (Shared Component) -->
-<footer class="w-full py-12 bg-surface-container-highest dark:bg-inverse-surface mt-20">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop">
-<div class="col-span-1 md:col-span-1 space-y-4">
-<div class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed">GreenSeva</div>
-<p class="font-body-md text-body-md text-on-surface-variant">© 2026 GreenSeva Sustainability Platform. All rights reserved.</p>
-</div>
-<div class="col-span-1 md:col-span-3 flex justify-end items-center gap-6">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Pricing</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">FAQ</a>
-</div>
-</div>
-</footer>
-<script>
+                </div>
+                <!-- Hero Visual (Bento-style layout) -->
+                <div class="relative z-10 h-full min-h-[500px] w-full mt-12 lg:mt-0">
+                    <div class="grid grid-cols-2 gap-4 h-full">
+                        <!-- Main Image -->
+                        <div
+                            class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-xl flex items-center gap-4">
+                            <div class="bg-primary-container text-on-primary-container p-2 rounded-full">
+                                <span class="material-symbols-outlined">qr_code_scanner</span>
+                            </div>
+                            <div>
+                                <h3 class="font-label-md text-label-md text-white">Instant Eco-Analysis</h3>
+                                <p class="font-label-sm text-label-sm text-white/80">Scan any product to reveal its true
+                                    impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Feature Highlights Section (Replaces Stats Section) -->
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop my-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center space-y-2 flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-1">qr_code_scanner</span>
+                    <div class="font-headline-md text-headline-md text-primary font-bold">Smart Scan</div>
+                    <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Instant
+                        Product Breakdown</div>
+                </div>
+                <div class="text-center space-y-2 flex flex-col items-center">
+                    <span class="material-symbols-outlined text-secondary text-4xl mb-1">nest_eco_leaf</span>
+                    <div class="font-headline-md text-headline-md text-secondary font-bold">Eco Verified</div>
+                    <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Trusted
+                        Green Standards</div>
+                </div>
+                <div class="text-center space-y-2 flex flex-col items-center">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-1">compost</span>
+                    <div class="font-headline-md text-headline-md text-primary font-bold">Food Rescue</div>
+                    <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Reduce
+                        Waste Locally</div>
+                </div>
+                <div class="text-center space-y-2 flex flex-col items-center">
+                    <span class="material-symbols-outlined text-secondary text-4xl mb-1">card_membership</span>
+                    <div class="font-headline-md text-headline-md text-secondary font-bold">Eco Rewards</div>
+                    <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Perks For
+                        Green Choices</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Slow-Mo 3D Frame-by-Frame Scroll Sequence -->
+
+    </main>
+    <!-- Footer (Shared Component) -->
+    <footer class="w-full py-12 bg-surface-container-highest dark:bg-inverse-surface mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+            <div class="col-span-1 md:col-span-1 space-y-4">
+                <div class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed">GreenSeva
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant">© 2026 GreenSeva Sustainability Platform.
+                    All rights reserved.</p>
+            </div>
+            <div class="col-span-1 md:col-span-3 flex justify-end items-center gap-6">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100"
+                    href="#">Privacy Policy</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100"
+                    href="#">Pricing</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100"
+                    href="#">Terms of Service</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100"
+                    href="#">FAQ</a>
+            </div>
+        </div>
+    </footer>
+    <script>
         // Simple scroll effect for top nav
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('topNav');
@@ -246,4 +298,5 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/scroll-sequence.js"></script>
 </body>
