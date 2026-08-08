@@ -2,7 +2,9 @@
  * GreenSeva Cosmetic Impact Scanner Frontend Integration
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  if (typeof initApp === 'function') await initApp();
+  if (!currentUser) return;
   setupScanTabs();
   setupPhotoUpload();
   setupManualForm();

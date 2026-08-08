@@ -3,6 +3,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
+  if (typeof initApp === 'function') await initApp();
+  if (!currentUser) return;
   await loadUserPointsBalance();
   await loadChallenges();
   await loadRewardsCatalog();

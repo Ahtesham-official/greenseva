@@ -75,6 +75,9 @@ let currentUser = null;
 async function checkAuth() {
   const token = localStorage.getItem(TOKEN_KEY);
 
+  // Immediately check route protection if no token is present
+  enforceRouteProtection();
+
   if (token) {
     const res = await fetchAPI('/auth/me');
     if (!res.err && res.user) {
@@ -83,7 +86,6 @@ async function checkAuth() {
       localStorage.removeItem(TOKEN_KEY);
       currentUser = null;
     }
-
   }
 
   updateNavbarAuthUI();
@@ -92,20 +94,21 @@ async function checkAuth() {
 
 function getCurrentPageName() {
   const path = window.location.pathname;
-  const page = path.substring(path.lastIndexOf('/') + 1);
-  return page || 'index.html';
+  let page = path.substring(path.lastIndexOf('/') + 1);
+  if (!page || page === '/') page = 'index.html';
+  return page.toLowerCase();
 }
 
 function enforceRouteProtection() {
   const currentPage = getCurrentPageName();
-  if (PROTECTED_PAGES.includes(currentPage) && !currentUser) {
+  const token = localStorage.getItem(TOKEN_KEY);
+
+  if (PROTECTED_PAGES.includes(currentPage) && (!currentUser || !token)) {
     sessionStorage.setItem('gs_redirect_target', currentPage);
     renderAuthModal();
 
-    setTimeout(() => {
-      openAuthModal('login');
-      showToast('Please log in or sign up to access this page.', 'error');
-    }, 100);
+    openAuthModal('login');
+    showToast('Please log in or sign up to access this page.', 'error');
 
     // Add non-interactive blur overlay over main content if modal is closed without login
     let lockOverlay = document.getElementById('gs-lock-overlay');
