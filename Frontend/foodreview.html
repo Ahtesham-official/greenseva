@@ -112,6 +112,15 @@
             transform: translateY(-2px);
         }
     </style>
+<script>
+  (function() {
+    var token = localStorage.getItem('gsToken');
+    if (!token) {
+      sessionStorage.setItem('gs_redirect_target', 'foodreview.html');
+      window.location.replace('index.html?auth=login');
+    }
+  })();
+</script>
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex relative">
 <!-- Full Screen Scroll-Driven Slow-Motion Background Video Canvas -->

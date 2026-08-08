@@ -134,6 +134,15 @@
       }
     }
   </style>
+  <script>
+    (function() {
+      var token = localStorage.getItem('gsToken');
+      if (!token) {
+        sessionStorage.setItem('gs_redirect_target', 'cosmetic.html');
+        window.location.replace('index.html?auth=login');
+      }
+    })();
+  </script>
 </head>
 
 <body class="bg-background text-on-background font-body-md antialiased pt-16 relative">

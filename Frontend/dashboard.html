@@ -112,6 +112,15 @@
             transition: stroke-dashoffset 1s ease-in-out;
         }
     </style>
+<script>
+  (function() {
+    var token = localStorage.getItem('gsToken');
+    if (!token) {
+      sessionStorage.setItem('gs_redirect_target', 'dashboard.html');
+      window.location.replace('index.html?auth=login');
+    }
+  })();
+</script>
 </head>
 <body class="bg-background text-on-background antialiased pt-24 min-h-screen flex flex-col relative">
 <!-- Full Screen Scroll-Driven Slow-Motion Background Video Canvas -->
